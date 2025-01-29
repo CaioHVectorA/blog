@@ -1,8 +1,8 @@
 ---
 title: "Prisma: a melhor opção para integração com banco de dados?"
 date: "29-01-2025"
-category: frontend
-active: false
+category: backend
+active: true
 ---
 Como desenvolvedores backend/fullstack, sempre queremos facilitar a integração com banco de dados de forma granular e em APIs e SKDs amigáveis, o que nos conecta a bibliotecas e ORMs.
 
