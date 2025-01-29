@@ -1,5 +1,5 @@
 ---
-title: "Utilidades tailwind."
+title: "Utilidades do tailwind"
 date: "19-01-2025"
 category: frontend
 active: false

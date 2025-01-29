@@ -2,7 +2,7 @@
 title: "Usando BunJS para um backend E2E"
 date: "26-07-2024"
 category: backend
-active: false
+active: true
 ---
 
 Okay, o hype do Bun passou. Você, através daquelas centenas de Tuítes e aquelas dezenas de vídeos, já entendeu que ele é 10x mais rápido que o node. Mas, ainda assim, não parou para experimentar o runtime e suas APIs. 
@@ -13,15 +13,16 @@ Enquanto estava descobrindo e me aventurando pelas [docs do Bun](https://bun.sh/
 
 Antes de começar a entrar no assunto de fato, gostaria de fazer a sugestão ao leitor: tente, por insistência própria, fazer as mesmas coisas ditas durante o artigo. Te garanto que vai ser uma boa experiência e que você vai aprender bastante!
 
-1. [Fazendo o Hello World](#fazendo-o-hello-world)
-2. [Olhando através das bibliotecas](#olhando-através-das-bibliotecas)
-3. [Cozinhando os dados](#cozinhando-os-dados)
-4. [Roteamento, entrega de arquivos](#roteamento-entrega-de-arquivos)
-5. [Catching de error](#catching-de-error)
-6. [Aprimorando as features](#aprimorando-as-features)
-7. [É realmente necessário?](#é-realmente-necessário)
-8. [Mais sobre o Bun](#mais-sobre-o-bun)
-9. [Conclusão](#conclusão)
+- [Fazendo o Hello World](#fazendo-o-hello-world)
+- [Olhando através das bibliotecas](#olhando-através-das-bibliotecas)
+- [Cozinhando os dados](#cozinhando-os-dados)
+    - [(Request) -\> ServerRequest](#request---serverrequest)
+- [Roteamento, entrega de arquivos](#roteamento-entrega-de-arquivos)
+- [Catching de error](#catching-de-error)
+- [Aprimorando as features](#aprimorando-as-features)
+- [É realmente necessário?](#é-realmente-necessário)
+- [Mais sobre o Bun](#mais-sobre-o-bun)
+- [Conclusão](#conclusão)
 
 ## Fazendo o Hello World
 
@@ -78,7 +79,7 @@ app.get('/', (req, res) => {
 
 Eis nossa interface de desenvolvimento: a Application. Novamente, nós também queremos uma interface de base síncrona, com um req object mastigado e com um objeto de response onde será enviado as nossas respostas. Mas antes, antes de tudo, temos que realmente pensar como será nosso objeto de Request e de Resposta. 
 ```ts
-export type ServerRequest<T> = {
+export interface ServerRequest<T> = {
     body: T,
     params: { [key: string]: string },
     query: { [key: string]: string },
@@ -89,7 +90,7 @@ export type ServerRequest<T> = {
     cookies: string | null,
 }
 
-export type ServerResponse = {
+export interface ServerResponse = {
     json: (body?: any) => Response;
     status: (code: number, json?: any) => Response;
     file: (file: BunFile) => Response

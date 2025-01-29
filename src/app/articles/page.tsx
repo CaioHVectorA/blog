@@ -3,7 +3,8 @@ import moment from "moment";
 import Link from "next/link";
 import 'moment/locale/pt-br'
 export default async function ArticlesPage() {
-  const articles = getArticles();
+  const articles = getArticles(false);
+  const env = process.env.NODE_ENV as "development" | "production";
   const sorted = articles.sort((a, b) => {
     return moment(a.date, "DD-MM-YYYY").isBefore(moment(b.date, "DD-MM-YYYY")) ? 1 : -1;
   });
@@ -18,7 +19,7 @@ export default async function ArticlesPage() {
             key={article.id}
             href={`/articles/${article.id}`}
           >
-            {article.title}{" "}
+            {env == 'development' && !article.active ? "✍️" : "✅"} {article.title}{" "}
             <span className="text-zinc-500 dark:text-zinc-400">
               {moment(article.date, "DD-MM-YYYY").locale('pt-br').format("MMMM D, YYYY")}
             </span>

@@ -1,3 +1,9 @@
+---
+title: "Prisma: a melhor opção para integração com banco de dados?"
+date: "29-01-2025"
+category: frontend
+active: false
+---
 É genuíno querermos facilitar a integração com o banco de dados dentro do nosso backend. E, como tudo no ecossistema javascript, temos uma chuva de opções e temos que cogitar entre os prós e contras. Um dos mais utilizados, é o *Prisma*. Será que ele é tão bom assim?
 
 ### As primeiras impressões 
