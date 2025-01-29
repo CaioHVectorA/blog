@@ -1,6 +1,6 @@
 ---
 title: "Usando BunJS para um backend E2E"
-date: "26-07-2024"
+date: "28-01-2025"
 category: backend
 active: true
 ---
