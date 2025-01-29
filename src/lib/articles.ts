@@ -2,6 +2,7 @@ import fs from "fs";
 import matter from "gray-matter";
 import path from "path";
 import moment from "moment";
+import "moment/locale/pt-br";
 import { remark } from "remark";
 import html from "remark-html";
 import { highlight } from "sugar-high";
@@ -90,7 +91,7 @@ export const getArticleData = async (id: string) => {
       contentHtml,
       title: matterResult.data.title,
       date: moment(matterResult.data.date, "DD-MM-YYYY").format(
-        "MMMM Do, YYYY"
+        "DD, MMMM YYYY"
       ),
     };
   }
@@ -105,6 +106,6 @@ export const getArticleData = async (id: string) => {
     id,
     contentHtml,
     title: matterResult.data.title,
-    date: moment(matterResult.data.date, "DD-MM-YYYY").format("MMMM Do, YYYY"),
+    date: moment(matterResult.data.date, "DD-MM-YYYY").format("DD, MMMM YYYY"),
   };
 };
