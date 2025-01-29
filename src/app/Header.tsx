@@ -7,6 +7,7 @@ const Header = () => {
   const [isDarkMode, setIsDarkMode] = useState(isThemeSetToDark());
 
   useEffect(() => {
+    if (typeof window === "undefined") return
     if (isThemeSetToDark()) {
       document.documentElement.classList.add("dark");
     } else {
@@ -15,6 +16,9 @@ const Header = () => {
   }, []);
 
   const toggleTheme = () => {
+    if (typeof window === "undefined") {
+      return;
+    }
     if (isDarkMode) {
       localStorage.theme = "light";
       document.documentElement.classList.remove("dark");
@@ -54,6 +58,9 @@ const Header = () => {
 };
 
 function isThemeSetToDark() {
+  if (typeof window === "undefined") {
+    return false;
+  }
   return localStorage.theme === "dark" || (!("theme" in localStorage) && window.matchMedia("(prefers-color-scheme: dark)").matches);
 }
 
