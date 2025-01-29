@@ -23,7 +23,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className="min-h-screen min-w-[100vw]">
+    <html lang="en" className="min-h-screen">
       <body className={`${karla.className} min-h-full p-4`}>
         <Analytics />
         <Script id="theme-toggle" strategy="afterInteractive">
