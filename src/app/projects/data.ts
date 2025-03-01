@@ -36,13 +36,13 @@ export const projects: Project[] = [
     source: "https://github.com/CaioHVectorA/tcg-api",
     techs: [
       "TS",
-      "ElysiaJS",
+      //   "ElysiaJS",
       "Bun",
       "PostgreSQL",
-      "Supabase",
+      //   "Supabase",
       "Next.js",
-      "Vercel",
-      "Fly.io",
+      //   "Vercel",
+      //   "Fly.io",
     ],
   },
   {
@@ -52,5 +52,14 @@ export const projects: Project[] = [
     hasAnchorOnImage: false,
     source: "https://github.com/CaioHVectorA/StoreHub",
     techs: ["Bun", "Fly.io"],
+  },
+  {
+    title: "Bun Sqlight",
+    description:
+      "O Bun Sqlight é uma biblioteca que oferece uma camada de abstração para a API Builtin de sqite do Bun. Ainda está em desenvolvimento.",
+    image: "/projects/sqlight.png",
+    hasAnchorOnImage: true,
+    source: "https://github.com/CaioHVectorA/bun-sqlight",
+    techs: ["Bun"],
   },
 ];
